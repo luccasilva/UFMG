@@ -1,0 +1,7 @@
+a) Qual o valor impresso pelo programa?
+
+Resposta: 5
+
+b) Qual o valor impresso neste caso? Justifique.
+
+Resposta: 7, uma vez que no momento da impressão x ainda possui o valor 1, e y e z apontam para a região de x na main, que possui valor 3.

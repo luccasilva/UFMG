@@ -1,0 +1,11 @@
+a)  Cite um exemplo de tipo de variavel em C/C++ em que a passagem por referencia seja 
+a melhor escolha e explique por que esta e a melhor opcao.
+
+Resposta:
+
+Em casos de utilização de Arrays a passagem por referencia é melhor para não haver cópia dos dados das operações,
+em que muitos casos podem ser grandes e a duplicação ocuparia muita memória.
+
+b) Em qual regiao de memoria sao armazenados os parametros passados por valor?
+
+Resposta: No frame da função na pilha de execução.

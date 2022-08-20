@@ -1,0 +1,20 @@
+a) i+r
+(i+r) -> real
+Resposta: real
+
+b) i+r+i
+(i+r) -> real
+(real+i) -> real
+Resposta: real, real
+
+c) i+(r+i)
+(r+i) -> real
+(i+real) -> real
+Resposta: real, real
+
+d) i+i+r+(r+i)
+(r+i) -> real
+(i+i) -> int
+(int + r) -> real
+(real + real) -> real
+Resposta: real, int, real, real

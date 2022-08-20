@@ -1,0 +1,6 @@
+true [ y → a0 ] = tt
+false [ y → a0 ] = ff
+( a1 = a2 )[ y → a0 ] = a1[ y → a0 ] = a2[ y → a0 ]
+( a1 <= a2 )[y → a0] = a1[ y → a0 ] <= a2[ y → a0 ]
+( ¬a1 )[ y → a0 ] = ¬(b[ y → a0 ])
+( a1 ∧ a2 )[ y → a0 ] = b(a1[ y → a0 ])∧ b(a2[ y → a0 ])

@@ -1,0 +1,6 @@
+1. Quais componentes de um programa devem ser armazenados na memoria?
+
+Resposta:
+
+(b) O programa em si e os estados que ele mantém
+

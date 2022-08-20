@@ -1,0 +1,33 @@
+2. Marque V ou F para as alternativas que definem as caracterısticas de cada tipo de memoria em C:
+
+(a) Memoria estatica tem gerenciamento automatico 
+
+Resposta: V
+
+(b) Memoria dinamica e representada como uma pilha com gerenciamento manual
+
+Resposta: F
+
+(c) Memoria dinamica e representada como uma heap com gerenciamento automatico
+
+Resposta: F
+
+(d) Memoria dinamica nao e flexıvel
+
+Resposta: F
+
+(e) Memoria dinamica tem gerenciamento mais complexo do que memoria estatica
+
+Resposta: V
+
+(f) Memoria estatica armazena variaveis globais
+
+Resposta: V
+
+(g) Memoria dinamica ´e representada como uma pilha com gerenciamento automatico
+
+Resposta: V
+
+(h) Memoria dinamica e representada como uma heap com gerenciamento manual
+
+Resposta: V

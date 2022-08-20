@@ -1,0 +1,23 @@
+a) m1.swap1(m2):
+
+m1.i = 4
+m2.i = 4
+
+b) m1.swap2(m2):
+
+m1.i = 3
+m2.i = 3
+
+c) m1.swap3(m2.i):
+
+m1.i = 4
+m2.i = 4
+
+d) Qual e o tipo de passagem da parametros que Java adota para tipos primitivos
+(int, float, char, etc)?
+
+Resposta: Passagem por valor.
+
+e) Qual e o tipo de passagem da parametros que Java adota para objetos?
+
+Resposta: Passagem por valor.

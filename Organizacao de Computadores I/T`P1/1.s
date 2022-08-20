@@ -1,0 +1,22 @@
+BEQ x10, x0, RI
+BEQ x11, x0, V/I
+BEQ x12, x0, V/R
+
+RI:
+MUL x10, x11, x12
+JAL RETURN
+
+V/I:
+BEQ x12, x0, END
+DIV x10, x10, x12
+JAL RETURN
+
+V/R:
+BEQ x11, x0, END
+DIV x10, x10, x11
+JAL RETURN
+
+END:
+ADDI x10, x0, 0
+
+RETURN:

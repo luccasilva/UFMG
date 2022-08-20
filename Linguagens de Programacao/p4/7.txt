@@ -1,0 +1,42 @@
+(a) A classe auto ptr utiliza pelo menos dois tipos diferentes de polimorfismo. Que tipos de polimorfismos sao estes?
+
+Resposta:
+
+Polimorfismo parametrico e Sobrecarga de operadores.
+
+(b) A funcao abaixo contem um problema de memoria ou nao? Em caso afirmativo, explique que falha e esta. Utilize a ferramenta valgrind para analisar este programa,
+por exemplo, tentando o comando valgrind -v ./a.out. Considere que uma falha de memoria leva valgrind a fornecer algum aviso. Caso o erro nao exista, justifique
+a sua resposta:
+
+Resposta:
+
+Nao ocorre problema de memoria porque, ao final da execução, o destrutor da classe libera o ponteiro que tinha sido alocado.
+
+Saída no valgrind:
+
+All heap blocks were freed – no leaks are possible
+ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+(c) Novamente: problema de memoria ou nao? Em caso afirmativo, explique que falha e esta. Em caso negativo, justifique. Note que excecoes, neste caso, funcionam
+como em Java ou Python:
+
+Resposta:
+
+Nao ocorre problema de memoria porque, ao final da execução, o destrutor da classe libera o ponteiro que tinha sido alocado.
+
+Saída no valgrind:
+
+All heap blocks were freed – no leaks are possible
+ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+(d) Ultima pergunta: problema de memoria ou nao? Em caso afirmativo, explique que falha e esta. Em caso negativo, justifique a sua resposta:
+
+Resposta:
+
+Ocorre problema de memoria, pois há perda de refencia do ponteiro utilizado. Logo a memoria nao será desalocada resultando em um memory leak.
+
+Saída no valgrind:
+
+LEAK SUMMARY:
+definitely lost: 32 bytes in 1 blocks
+indirectly lost: 0 bytes in 0 blocks

@@ -1,0 +1,3 @@
+a)
+
+Ao aplicar valores elevados a função demora muiro para retornar o resultado. Isso acontece por causa de cada comparação da linha 18 (efeito recursão).

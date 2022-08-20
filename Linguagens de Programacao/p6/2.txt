@@ -1,0 +1,28 @@
+a) Escreva o codigo do programa acima apos o pre-processamento.
+
+Resposta:
+
+int main(int argc, char ** argv){
+	printf ("sum = %d\n", (argc) + (argv [0][0]));
+}
+
+b) Um dos problemas com expansao de macros e a chamada capture de variaveis.
+Explique o que e esse problema.
+
+Resposta:
+
+Capture de variaveis é quando uma variavel local possui o mesmo nome de um parâmetro real. Logo,
+ao substituir a chamada da macro no corpo da função, não tem como diferenciar a variavel local do
+parametro real, resultando em modificações não só no local da macro como também no valor real, pois
+a avaliação é feita dentro do contexto da macro.
+
+c) Escreva um programa em C que prove que parametros de macros sao
+avaliados multiplas vezes.
+
+Resposta:
+
+define SUM (X , Y ) ( X ) + ( Y )
+
+int main (int argc , char ** argv ) {
+	printf ("sum = %d\n", SUM ( argc , argv [0][0]) ) ;
+}

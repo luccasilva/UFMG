@@ -1,0 +1,16 @@
+4. Cite tres exemplos de coletores de lixos que podem ser utilizados por uma linguagem de programacao. Apresente um exemplo de aplicacao para o qual um dos modelos, a
+sua escolha, e o mais adequado e justifique.
+
+Resposta:
+
+Mark and sweep:
+Aplicação: Sistemas em que nao se precisa alocar e desalocar memoria com tanta frequencia e sem real time,
+uma vez que o mark and sweep precisa varrer o heap inteiro na marcação e precisa da aplicacao parada para poder ser executado.
+
+Reference Counting Algorithm:
+Aplicação: Sistemas em real time,
+uma vez que a execução do Reference Counting Algorithm não interrompe a execução do programa princial.
+
+Copying Algorithm:
+Aplicação: Servidores com um alto trafego de mensagens e alta taxa de alocação e desalocação memoria,
+uma vez que o Copying Algorithm aloca e desaloca memória de forma rapida.

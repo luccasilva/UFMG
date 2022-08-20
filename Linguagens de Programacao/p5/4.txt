@@ -1,0 +1,16 @@
+a) Qual o “contrato” que deve ser garantido pelos objetos passados para este metodo?
+Isto e pelos elementos de s passado para o metodo?
+
+Resposta:
+
+Deve ser garantido que s possa implementar os métodos isNotEmpty e remove, imdependentemente do seu tipo.
+
+
+b) O que significa a expressao duck typing? E qual sua relacao com este metodo?
+
+Resposta:
+
+A expressão refere-se a um tipo de codificação de linguagem dinamicamente tipada, em que o tipo implementado não importa
+desde que o contrato proposto seja seguido corretamente.
+
+Sua relacao com este metodo é que s pode assumir qualquer tipo deesde que s possa implementar os métodos isNotEmpty e remove.

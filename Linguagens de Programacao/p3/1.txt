@@ -1,0 +1,7 @@
+a)
+
+Saída será = 1. A função q incrementa a variavel x definida no escopo de p, e o valor de x em r manteria o mesmo.
+
+b)
+
+Saida será = 2. A função q incrementa a variavel x definida no escopo de r e a função chama q.

@@ -1,0 +1,18 @@
+while ¬(x=1) do (y:=y*x; x:=x-1)
+
+R: Não é possível determinar pois o comando x:=x-1 produz um novo estado
+onde X pode possuir um novo valor que faça com que a condição resulte em 
+falso e interrompa o loop. Porém se, por exemplo, o estado inicial de x
+for menor que 1, o loop entra em estado infinito.
+
+while 1 ≤ x do (y:=y*x; x:=x-1)
+
+O programa acima terminará pois sempre que x for maior que 1, o
+próximo estado vai ser x:x-1, o que resultará em um número menor
+após cada interação, o que em algum momento fará com que a condição
+de parada seja alcançada. E se x inicialmente já for menor que 1 o
+programa termina imediatamente.
+
+while true do skip
+
+Programa infinito pois a condição do while é sempre igual a True!

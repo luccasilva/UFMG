@@ -1,0 +1,1 @@
+x := n; z := 1; while ¬ (m=0) do (z := z*x; m := m-1)

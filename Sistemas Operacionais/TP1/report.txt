@@ -1,0 +1,112 @@
+RELATÓRIO
+
+1. Termo de compromisso
+
+Os membros do grupo afirmam que todo o código desenvolvido para este
+trabalho é de autoria própria.  Exceto pelo material listado no item 3
+deste relatório, os membros do grupo afirmam não ter copiado
+material da Internet nem obtiveram código de terceiros.
+
+2. Membros do grupo e alocação de esforço
+
+Preencha as linhas abaixo com o nome e o e-mail dos integrantes do
+grupo.  Substitua XX pela contribuição de cada membro do grupo no
+desenvolvimento do trabalho.
+
+Lucca Silva Medeiros <luccasm@ufmg.br> 50%
+Gabriel Sacoman Teixeira Silva <gabriel-sacoman@ufmg.br> 50%
+
+3. Referências bibliográficas
+
+Adicione aqui as referências bibliográficas.
+
+Sites:
+https://guialinux.uniriotec.br/shell/
+https://guialinux.uniriotec.br/cd/
+https://www.freecodecamp.org/portuguese/news/o-comando-ls-do-linux-como-listar-arquivos-em-um-diretorio-e-flags-de-opcao/
+https://www.delftstack.com/pt/howto/c/execvp-in-c/
+https://linux.die.net/man/3/execvp
+https://www.dca.ufrn.br/~adelardo/cursos/DCA409/node39.html
+https://www.certificacaolinux.com.br/redirecionamentos-e-condutores-no-linux/
+https://www.delftstack.com/pt/howto/c/open-vs-fopen-in-c/
+https://docs.microsoft.com/pt-br/cpp/c-runtime-library/reference/dup-dup2?view=msvc-170
+https://www.geeksforgeeks.org/pipe-system-call/
+https://stackoverflow.com/questions/42426816/how-does-waitnull-exactly-work
+
+Livros:
+Fundamentos de Sistemas Operacionais, 8ª edição, Silberschatz, Galvin e Gagne.
+
+4. Estruturas de dados
+
+Descreva e justifique as estruturas de dados e algoritmos utilizados em sua solução.
+
+    /* task1 */
+
+O IF abaixo verifica se o comando atual é o cd. Esse comando permite ao usuário mudar o
+diretório de trabalho, por isso o IF é necessário, pois ele faz com que o diretório de 
+trabalho mude para a execução do processo. Além disso também possui chamadas de erros
+específicos de mudança de diretório caso não ocorra a mudança corretamente.
+
+    /* task2 */
+
+A tarefa 2 consiste em basicamente chamar de fato a execução dos comandos passados no shell.
+Para isso existe uma função nativa em C que se chama execvp. Essa função subistitui a atual
+imagem de processo por uma nova, que é exatamente o que precisamos fazer para executar novos
+comandos em sistemas baseados em Unix.
+
+Ela possui dois parâmetros:
+
+int execvp(const char *file, char *const argv[]);
+
+O segundo parâmetro é um vetor de ponteiros para strings que representa a lista de argumentos
+para o programa executado. Essa lista já está bem definida na estrutura de dados execcmd, que
+possui o atributo argv, que é exatamente um vetor contendo os argumentos do comando.
+
+Já o primeiro parâmetro aponta para o arquivo associado ao nome do programa sendo executado,
+que por convenção assume-se que é o primeiro argumento do vetor de comandos citados anteriormente,
+ou seja, argv[0].
+
+    /* task3 */
+
+A tarefa 3 consiste em executar comandos com redirecionamento. No linux tudo pode ser mapeado para
+o sistema de arquivos, ou seja, os programas podem interagir de forma análoga a esse sistema, pois
+para o SO o hardware será acessado como se fossem arquivos. Logo o redirecionamento consiste em
+redirecionar a saída de um comando para um arquivo especificio ( ">" ), ou redirecionar um arquivo
+para dentro de um comando ( "<" ). Temos então que executar comandos com redirecionamento consiste
+em manipular os descritores de arquivo, que seria o número inteiro que representa o arquivo na tabela
+de arquivos do SO. Para isso temos a função dup2, que cria uma cópia do descritor de arquivo fornecido
+e atribui um novo inteiro a ele:
+
+int dup2(int fd1, int fd2);
+
+O primeiro parâmetro é o descritor do arquivo que faz referência ao arquivo que se deseja clonar.
+Essa informação foi armazenada no int fileValue que chama a função open(). Como já temos bem definidos
+na interface redircmd o arquivo de entrada ou saída do comando (char *file) e também o modo no qual o
+arquivo deve ser aberto (int mode), basta chamar a função open() passando esses dois argumentos para
+termos o descritor que desejamos.
+
+Já o segundo parâmetro é um inteiro para um novo descritor de arquivo. Essa informação também já está
+bem definida na interface redircmd, no int fd: o número de descritor de arquivo que deve ser usado.
+
+    /* task4 */
+
+A tarefa 4 consiste em executar comandos com pipe. Inicialmente é preciso criar o pipe de comunicação,
+para isso foi utilizada a função pipe(), que recebe como parâmetro um array de inteiro com duas posições.
+Esse array já foi criado na função runcmd(). A posição p[0], armazena o descritor do arquivo de leitura dos
+dados ( saída do pipe ), Já a posição p[1] armazena o descritor do arquivo de escrita ( entrada do pipe ).
+
+Estabelecido o canal de comunicação, realiza-se a chamada do fork, que resulta na criação de um novo processo
+filho através da duplicação do processo pai. Essa função retorna um inteiro, caso o valor seja = 0, está se
+executando o processo filho, e caso o valor seja > 0, está se executando o processo pai. Separa-se então esses
+dois casos através de um condicional IF pois cada execução possui suas particularidades.
+
+Na execução do processo filho:
+wait(NULL) bloqueia o processo pai até que os processos filhos tenham terminado. Então, close(p[0])
+fecha o arquivo de leitura do pipe ( fecha a saída do pipe). Depois disso, dup2() cria uma cópia do
+descritor de arquivo fornecido pela entrada de dados do pipe (p[1]) e atribui o descritor de stdout.
+E por fim realiza a execução do comando da esquerda.
+
+Na execução do processo pai:
+close(p[1]) fecha o arquivo de escrita dos dados do pipe ( fecha a entrada do pipe). Depois disso,
+dup2() cria uma cópia do descritor de arquivo fornecido pela saída de dados do pipe (p[0]) e atribui
+o descritor de stdin. E por fim realiza a execução do comando da direita.

@@ -1,0 +1,7 @@
+Acerca de orientacao a objetos, descreva o que e o “Problema do Diamante”.
+
+Resposta:
+
+É uma ambiguidade que ocorre quando duas classes hipotéticas B e C herdam de A, e a classe D herda de B e C.
+Haja vista esse cenário, se houver um método em A que B e C substituem, e D não o substitui, então, D herda a versão
+de de B ou a de C? Dai surge o “Problema do Diamante”.

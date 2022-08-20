@@ -1,0 +1,17 @@
+3. Considerando os diferentes tipos de memoria em C:
+(a) classifique qual tipo de memoria esta sendo utilizada para cada variavel do programa em C apresentado a seguir:
+
+Resposta:
+
+valor_inicial - memoria estatica
+valor_intermediario - memoria estatica
+taxa - memoria dinamica
+valores - memoria dinamica
+
+(b) apresente quais valores serao gerados para a lista construıda ao fim da execucao
+
+Resposta:
+
+valores[0] = 25
+valores[1] = 75
+valores[2] = 15

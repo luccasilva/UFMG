@@ -1,0 +1,28 @@
+a) 
+
+Bloco 1 = escopo de g
+Bloco 2 = escopo de let - linha 2
+Bloco 3 = escopo de f
+Bloco 4 = escopo de h
+Bloco 5 = escopo de let - linha 6
+
+b)
+
+g, x, inc(linha 3), f, y, h, z, inc(linha 7)
+
+c)
+
+g -> Bloco 1,
+x -> Bloco 1,
+inc(linha 3) -> Bloco 2,
+f -> Bloco 2,
+y -> Bloco 3,
+h -> Bloco 2,
+z -> Bloco 4,
+inc(linha 7) -> Bloco 5
+
+d) 
+
+Saída = 6. Isso acontece porque SML possui escopo estático. Caso fosse dinâmico o valor de inc na função f seria atrelado à definição de inc
+dentro de h uma vez que h chama f. Mas como é estático não há definição de inc no corpo de f, ela é atrelada ao valor definido no bloco do
+operador let de g, pois contém a definição de f.

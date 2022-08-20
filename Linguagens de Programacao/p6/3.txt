@@ -1,0 +1,9 @@
+a) Qual o valor de Z na chamada abaixo?
+
+Resposta: 30
+
+b) Explique o que o programa abaixo faz.
+
+Resposta:
+
+O programa gera o somatório de 1/(i+a)^2 com i indo de 1 a 100.

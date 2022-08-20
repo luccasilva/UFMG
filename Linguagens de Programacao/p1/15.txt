@@ -1,0 +1,5 @@
+a) Em ML o if representa uma expressão e por isso deve sempre retornar um valor. Na situação da questão não existe um retorno para caso o condicional seja falso, por isso o erro.
+
+b) O operador * somente realiza operações entre os mesmos tipos algébricos, INT * INT ou REAL * REAL, não é possível realizar INT * REAL como o exemplo da questão.
+
+c) O erro foi de redundancia por a segunda definição da função fact 0 = 1; também se encaixar na primeira definição fact n = n * fact (n -1); O certo seria definir as condições específicas primeiro.
